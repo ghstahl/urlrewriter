@@ -80,7 +80,7 @@ namespace Intelligencia.UrlRewriter
         /// </summary>
         public void Rewrite()
         {
-            string originalUrl = _httpContext.RawUrl.Replace("+", " ");
+            string originalUrl = _httpContext.RequestUrl.PathAndQuery.Replace("+", " ");
             RawUrl = originalUrl;
 
             _configuration.Logger.Debug(MessageProvider.FormatString(Message.StartedProcessing, originalUrl));
